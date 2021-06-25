@@ -80,3 +80,17 @@ def request_data():
                             )[0]
     print (pandas_table.head())
     return pandas_table 
+
+
+def tentativa():
+    texto = '''Deseja tentar novamente ?
+                1 - Sim
+                2 - Não
+                 '''
+    valor = input (texto)
+    if valor==str(1):
+        resultado = "ok"
+    else: 
+        resultado = "not ok"
+    return resultado
+
