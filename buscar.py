@@ -27,9 +27,20 @@ def prep_request():
 moedas = prep_request()
 
 def show_options():
+    moedas_list = []
 #escolha as suas opções
     for item in moedas.iterrows():
         print (f"{item[0]}-{item[1].moeda}")
+        moedas_list.append(f"{item[1].moeda}")
+    return moedas_list
+
+def show_options_server():
+    moedas_list = []
+#escolha as suas opções
+    for item in moedas.iterrows():
+        ndict = item[1].to_dict()
+        moedas_list.append(ndict)
+    return moedas_list
 
 def get_moeda(id):
     try:
@@ -69,8 +80,29 @@ def create_form():
     print (form)
     return form
 
+def create_form_server(opcao,data,moeda):    
+    form = {
+        'RadOpcao': opcao,
+        'DATAINI': data,
+        'ChkMoeda':  moeda
+    }
+    #print (form)
+    return form
+
+
 def request_data():
     form  = create_form()
+    post_bacen_taxas = requests.post(url,form)
+    post_bacen_pagina = BeautifulSoup(post_bacen_taxas.content,'html.parser')
+    html_table = str(post_bacen_pagina.find_all('table')[0])
+    pandas_table = pd.read_html(html_table,
+                            decimal=',',
+                            thousands='.',
+                            )[0]
+    print (pandas_table.head())
+    return pandas_table 
+
+def request_data_server(form):
     post_bacen_taxas = requests.post(url,form)
     post_bacen_pagina = BeautifulSoup(post_bacen_taxas.content,'html.parser')
     html_table = str(post_bacen_pagina.find_all('table')[0])

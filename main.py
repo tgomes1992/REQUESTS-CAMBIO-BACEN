@@ -22,10 +22,10 @@ def main():
             try_again = True
         else:
             try_again = False
+            print ("Volte Sempre!")
 
         
 
-if name__=='__main__':
+if __name__=='__main__':
     main()
 
-    
