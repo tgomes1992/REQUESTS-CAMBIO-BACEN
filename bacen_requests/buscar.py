@@ -20,7 +20,6 @@ def prep_request():
     for i in options:
         ndict['code'].append(i.attrs['value'])
         ndict['moeda'].append(i.text)
-        #list_options.append(ndict)
     moedas = pd.DataFrame.from_dict(ndict)
     return moedas
 
@@ -86,7 +85,6 @@ def create_form_server(opcao,data,moeda):
         'DATAINI': data,
         'ChkMoeda':  moeda
     }
-    #print (form)
     return form
 
 

@@ -1,4 +1,4 @@
-from buscar import escolha_moeda ,create_form , request_data , tentativa
+from bacen_requests.buscar import escolha_moeda ,create_form , request_data , tentativa
 
 #Mensagens
 
