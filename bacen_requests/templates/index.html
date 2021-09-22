@@ -7,33 +7,51 @@
     </head>
 
     <body>
-        <form action="consulta" method='post'>
-            <div class="opcoes">
-                <input type="radio" value="1" name='opcao'>
-                <p>Cotações de fechamento de uma moeda em um período.</p>
+        
+        <div class="container">
+            <h2 class="center">Taxas Request</h2>
+            
+            <form action="consulta" class='main-form' method='post'>
+                <div class="opcoes">
 
-                <input type="radio" value="2" name='opcao'>
-                <p>Cotações de fechamento de todas as moedas em uma data.</p>
+                    <div class="opt">
+                    
+                        <input type="radio" value="1" name='opcao'>
+                        <p>Cotações de fechamento de uma moeda em um período.</p>
+                        
+                    </div>
 
-                <input type="radio" value="3" name='opcao'>
-                <p>Boletins intermediários de taxas de câmbio em uma data.</p>
-            </div>
-            <p> Informe os parâmetros da pesquisa</p>
-            <div>
-                <label>Data Inicial</label>
-                <input type="date" name="DATAINI" id="DATAINI">
+                    <div class="opt">
 
-                <label>Data Final</label>
-                <input type="date" name="DATAFIM" id="DATAFIM">
+                        <input type="radio" value="2" name='opcao'>
+                        <p>Cotações de fechamento de todas as moedas em uma data.</p>
 
-                <select name="MOEDA" id="moeda" value=" ">
-                    {% for item in moedas %}
-                    <option value={{item['code']}}>{{item['moeda']}}</option>
-                    {% endfor %}
-                </select>
-                <input type='submit'>
-            </div>
-        </form>
+                    </div>
+                    
+                    <div class="opt"> 
+
+                        <input type="radio" value="3" name='opcao'>
+                        <p>Boletins intermediários de taxas de câmbio em uma data.</p>
+                        </div>
+      
+                </div>
+                <p> Informe os parâmetros da pesquisa</p>
+                <div>
+                    <label>Data Inicial</label>
+                    <input type="date" name="DATAINI" id="DATAINI">
+
+                    <label>Data Final</label>
+                    <input type="date" name="DATAFIM" id="DATAFIM">
+
+                    <select name="MOEDA" id="moeda" value=" ">
+                        {% for item in moedas %}
+                        <option value={{item['code']}}>{{item['moeda']}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type='submit'>
+                </div>
+            </form>
+    </div>
     </body>
 
     <script src="static/main.js"></script>

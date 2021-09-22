@@ -1,4 +1,43 @@
 body {
     background-color: brown;
+    
+    
+}   
+
+input{
+    margin-right: 10px;
 }
 
+.center {
+    margin: auto 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.opt {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+}
+
+h2 {
+    font-size: 50px;
+    color: white;
+    margin: auto 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-form {
+    color: white;
+    font-size: 20px;
+}
+
+
+.container{
+    margin:auto 0;
+    display: grid;
+    justify-content: center;
+        
+    ;
+}
